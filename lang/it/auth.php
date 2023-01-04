@@ -13,9 +13,9 @@ return [
     |
     */
 
-    "failed" => "These credentials do not match our records.",
-    "password" => "The provided password is incorrect.",
-    "throttle" => "Too many login attempts. Please try again in :seconds seconds."
+    "failed" => "Queste credenziali non sono associate a nessun account.",
+    "password" => "La password fornita non è corretta.",
+    "throttle" => "Hai effettuato troppi tentativi. Perfavore riprova tra :seconds secondi."
 
 ];
 ?>
