@@ -27,7 +27,7 @@ class AuthorController extends Controller{
             $author = new Author();
             $author->firstname = $firstname;
             $author->lastname = $lastname;
-            return View::make("author/form")->with("author",$author)->with("errorsValidation",$validator->failed());
+            return redirect("author/create")->with("author",$author)->withErrors($validator)->withInput();
         }else{
             $author = new Author();
             $author->storage($request);
@@ -46,6 +46,7 @@ class AuthorController extends Controller{
             $author = new Author();
             $author->firstname = $request->firstname;
             $author->lastname = $request->lastname;
+            //return redirect("author/edit")->with("author",$author)->withErrors($validator)->withInput();
             return View::make("author/form")->with("author",$author)->with("errorsValidation",$validator->failed());
         }else{
             $author = Author::find($id);

@@ -28,7 +28,7 @@ class BookController extends Controller{
             $title = $request["title"];
             $book = new Book();
             $book->title = $title;
-            return View::make("book/form")->with("book",$book)->with("authorList",$authorList)->with("errorsValidation",$validator->failed());
+            return redirect("book/create")->with("book",$book)->with("authorList",$authorList)->withErrors($validator)->withInput();
         }else{
             $book = new Book();
             $book->storage($request);
@@ -49,6 +49,7 @@ class BookController extends Controller{
             $book->title = $request->title;
             $book->author_id = $request->author_id;
             $authorList = Author::all();
+            //return redirect("book/edit")->with("book",$book)->with("authorList",$authorList)->withErrors($validator)->withInput();
             return View::make("book/form")->with("book",$book)->with("authorList",$authorList)->with("errorsValidation",$validator->failed());
         }else{
             $book = Book::find($id);
